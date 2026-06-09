@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact • EVVA Asten</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .section-header { font-size: 2.5rem; line-height: 1.1; font-weight: 700; }
+    </style>
+</head>
+<body class="bg-[#F8FAF5] text-[#1F2A1F]">
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b border-[#E5EDE3] sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex items-center justify-between px-6 py-5">
+                <div class="flex items-center gap-x-3">
+                    <div>
+                        <img src="assets/logo.png" alt="EVVA Logo" class="h-11 w-auto">
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html" class="nav-link px-3 py-2 text-[#374151]">Home</a>
+                    <a href="kosten.html" class="nav-link px-3 py-2 text-[#374151]">Huren</a>
+                    <a href="activiteiten.html" class="nav-link px-3 py-2 text-[#374151]">Activiteiten</a>
+                    <a href="weetjes.html" class="nav-link px-3 py-2 text-[#374151]">Weetjes</a>
+                    <a href="reglement.html" class="nav-link px-3 py-2 text-[#374151]">Reglement</a>
+                    <a href="bestuur.html" class="nav-link px-3 py-2 text-[#374151]">Bestuur</a>
+                    <a href="galerij.html" class="nav-link px-3 py-2 text-[#374151]">Galerij</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <a href="contact.html" class="px-6 py-2.5 text-sm font-semibold bg-[#2E7D32] text-white rounded-3xl">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="section-header">Neem contact op</h1>
+            <p class="mt-4 text-lg text-[#374151]">We horen graag van je. Stuur ons een bericht en we reageren binnen 2 werkdagen.</p>
+            
+            <form class="mt-10 space-y-6 bg-white p-10 rounded-3xl border border-[#E5EDE3]">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Naam</label>
+                        <input type="text" class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl" placeholder="Je naam" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Telefoon</label>
+                        <input type="tel" class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl" placeholder="06 12 34 56 78">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2">E-mailadres</label>
+                    <input type="email" class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl" placeholder="jouw@email.nl" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2">Waarover gaat je bericht?</label>
+                    <select class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl">
+                        <option>Ik wil een tuin huren</option>
+                        <option>Ik wil meer info over activiteiten</option>
+                        <option>Ik heb een vraag over de regels</option>
+                        <option>Anders</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2">Bericht</label>
+                    <textarea class="w-full border border-[#E5EDE3] px-4 py-3 rounded-3xl h-32" placeholder="Vertel ons meer..." required></textarea>
+                </div>
+                
+                <button type="submit" class="w-full py-4 bg-[#2E7D32] text-white font-semibold rounded-3xl text-lg hover:bg-[#256B29]">
+                    Verstuur bericht
+                </button>
+                
+                <p class="text-center text-xs text-[#64748B]">We nemen binnen 2 werkdagen contact met je op.</p>
+            </form>
+            
+            <div class="mt-12 grid md:grid-cols-2 gap-8 text-sm">
+                <div>
+                    <div class="font-semibold mb-2">E-mail</div>
+                    <a href="mailto:evva-asten@hotmail.com" class="text-[#2E7D32]">evva-asten@hotmail.com</a>
+                </div>
+                <div>
+                    <div class="font-semibold mb-2">Telefoon</div>
+                    <div>Verhuur: <a href="tel:0621594136" class="text-[#2E7D32]">06 2159 4136</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#1F2A1F] text-white/70 py-10">
+        <div class="max-w-screen-xl mx-auto px-6 text-center text-xs">
+            © 2026 Eerste Volkstuinvereniging Asten • <a href="index.html" class="hover:text-white">Home</a>
+        </div>
+    </footer>
+</body>
+</html>

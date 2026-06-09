@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerij • EVVA Asten</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .section-header { font-size: 2.5rem; line-height: 1.1; font-weight: 700; }
+    </style>
+</head>
+<body class="bg-[#F8FAF5] text-[#1F2A1F]">
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b border-[#E5EDE3] sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex items-center justify-between px-6 py-5">
+                <div class="flex items-center gap-x-3">
+                    <div>
+                        <img src="assets/logo.png" alt="EVVA Logo" class="h-11 w-auto">
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html" class="nav-link px-3 py-2 text-[#374151]">Home</a>
+                    <a href="kosten.html" class="nav-link px-3 py-2 text-[#374151]">Huren</a>
+                    <a href="activiteiten.html" class="nav-link px-3 py-2 text-[#374151]">Activiteiten</a>
+                    <a href="weetjes.html" class="nav-link px-3 py-2 text-[#374151]">Weetjes</a>
+                    <a href="reglement.html" class="nav-link px-3 py-2 text-[#374151]">Reglement</a>
+                    <a href="bestuur.html" class="nav-link px-3 py-2 text-[#374151]">Bestuur</a>
+                    <a href="galerij.html" class="nav-link px-3 py-2 text-[#2E7D32] font-semibold">Galerij</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <div class="text-[#2E7D32] text-sm font-semibold tracking-wider">INSPIRATIE</div>
+                <h1 class="section-header mt-3">Foto's &amp; filmpjes</h1>
+            </div>
+            <div class="text-sm text-[#64748B]">Je kunt hier zelf foto's toevoegen</div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery">
+            <!-- Placeholder photos - user can add more -->
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/1015/600/400" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/102/600/400" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/1036/600/400" class="w-full h-full object-cover">
+            </div>
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/106/600/400" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <div class="mt-12 bg-[#F1F7EE] border border-[#D1F2C3] p-8 rounded-3xl">
+            <div class="font-semibold mb-2">Foto's toevoegen</div>
+            <p class="text-sm text-[#374151]">Plaats nieuwe foto's in de map <strong>galerij</strong> (maak deze map als die er nog niet is) en laat het ons weten. We voegen ze dan toe aan de website.</p>
+        </div>
+    </div>
+
+    <footer class="bg-[#1F2A1F] text-white/70 py-10">
+        <div class="max-w-screen-xl mx-auto px-6 text-center text-xs">
+            © 2026 Eerste Volkstuinvereniging Asten • <a href="index.html" class="hover:text-white">Home</a>
+        </div>
+    </footer>
+</body>
+</html>
