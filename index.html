@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVVA • Eerste Volkstuinvereniging Asten</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        :root {
+            --primary-green: #2E7D32;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .nav-active {
+            color: #2E7D32;
+            font-weight: 600;
+        }
+
+        .garden-gradient {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+        }
+
+        .section-header {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #2E7D32;
+        }
+
+        .benefit-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .rule-item {
+            transition: all 0.2s ease;
+        }
+
+        .tip-card {
+            transition: all 0.3s ease;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(46, 125, 50, 0.65), rgba(46, 125, 50, 0.45)), url('https://picsum.photos/id/1018/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .modern-shadow {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        .garden-bg {
+            background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cpath fill=%22%23f0fdf4%22 fill-opacity=%220.4%22 d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-10V8h-2v16h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 6v-4H4v4H0v2h4v4h2V8h4V6H6z%22/%3E%3C/g%3E%3C/svg%27');
+        }
+    </style>
+</head>
+<body class="bg-[#F8FAF5] text-[#1F2A1F]">
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b border-[#E5EDE3] sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex items-center justify-between px-6 py-5">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-11 h-11 bg-[#2E7D32] rounded-2xl flex items-center justify-center shadow-inner">
+                        <i class="fa-solid fa-seedling text-white text-3xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-3xl tracking-tighter">EVVA</span>
+                        <span class="text-[#2E7D32] text-sm font-medium block -mt-1">Asten</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html" class="nav-link px-3 py-2 text-[#374151]">Home</a>
+                    <a href="kosten.html" class="nav-link px-3 py-2 text-[#374151]">Huren</a>
+                    <a href="activiteiten.html" class="nav-link px-3 py-2 text-[#374151]">Activiteiten</a>
+                    <a href="weetjes.html" class="nav-link px-3 py-2 text-[#374151]">Weetjes</a>
+                    <a href="reglement.html" class="nav-link px-3 py-2 text-[#374151]">Reglement</a>
+                    <a href="nieuwsbrieven.html" class="nav-link px-3 py-2 text-[#374151]">Nieuwsbrieven</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <!-- CTA Buttons -->
+                    <a href="#contact" 
+                       class="hidden md:block px-5 py-2.5 text-sm font-semibold bg-white border border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32] hover:text-white rounded-3xl transition-all duration-200">
+                        Contact
+                    </a>
+                    <a href="kosten.html" 
+                       class="px-6 py-2.5 text-sm font-semibold bg-[#2E7D32] hover:bg-[#256B29] text-white rounded-3xl transition-all duration-200 flex items-center gap-x-2">
+                        <span>Word lid</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    
+                    <!-- Mobile menu -->
+                    <button class="md:hidden w-10 h-10 flex items-center justify-center text-[#2E7D32]" id="mobile-menu-btn">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-bg h-[92vh] flex items-center relative">
+        <div class="max-w-screen-xl mx-auto px-6 pt-12 pb-16">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-3xl mb-6 border border-white">
+                    <div class="flex items-center">
+                        <div class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span class="ml-2 text-sm font-semibold text-[#2E7D32]">Meer dan 40 jaar passie</span>
+                    </div>
+                </div>
+                
+                <h1 class="text-white text-7xl md:text-7xl font-bold leading-none tracking-tighter">
+                    Jouw eigen<br>
+                    <span class="text-[#D1F2C3]">groene</span> plek.
+                </h1>
+                
+                <p class="mt-6 max-w-md text-xl text-white/90">
+                    Welkom bij de Eerste Volkstuinvereniging Asten. 
+                    Een plek waar jong en oud samen tuinieren, ontspannen en genieten.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 mt-9">
+                    <a href="kosten.html" 
+                       class="px-8 py-4 bg-white text-[#2E7D32] font-semibold rounded-3xl text-lg flex items-center gap-x-3 shadow-xl hover:shadow-2xl transition-all">
+                        <span>Bekijk de tuinen</span>
+                    </a>
+                    <a href="#contact" 
+                       class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 font-semibold rounded-3xl text-lg transition-all flex items-center gap-x-3">
+                        <span>Neem contact op</span>
+                    </a>
+                </div>
+                
+                <div class="mt-10 flex items-center gap-x-8 text-white/80 text-sm">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-white overflow-hidden"><img src="https://picsum.photos/id/1005/32/32" class="w-full h-full object-cover"></div>
+                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-white overflow-hidden"><img src="https://picsum.photos/id/1011/32/32" class="w-full h-full object-cover"></div>
+                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-white overflow-hidden"><img src="https://picsum.photos/id/1009/32/32" class="w-full h-full object-cover"></div>
+                    </div>
+                    <div>
+                        <span class="font-semibold">180+ tevreden tuiniers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 right-8 hidden lg:block">
+            <div class="bg-white/95 backdrop-blur-lg px-5 py-3 rounded-3xl flex items-center gap-x-3 shadow-xl">
+                <div>
+                    <div class="text-xs font-medium text-[#2E7D32]">Vanaf</div>
+                    <div class="font-bold text-2xl text-[#2E7D32] leading-none">€15<span class="text-base font-normal">/jaar</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUST BAR -->
+    <div class="bg-white border-b border-[#E5EDE3]">
+        <div class="max-w-screen-xl mx-auto px-6 py-5">
+            <div class="flex flex-wrap justify-center md:justify-between items-center gap-x-8 gap-y-4 text-center text-sm">
+                <div class="flex items-center gap-x-3 text-[#4B5C4B]">
+                    <i class="fa-solid fa-globe fa-lg text-[#2E7D32]"></i>
+                    <span class="font-medium">2 locaties • Asten &amp; Heusden</span>
+                </div>
+                <div class="hidden md:block h-3 w-px bg-[#E5EDE3]"></div>
+                <div class="flex items-center gap-x-3 text-[#4B5C4B]">
+                    <i class="fa-solid fa-users fa-lg text-[#2E7D32]"></i>
+                    <span class="font-medium">180+ actieve leden</span>
+                </div>
+                <div class="hidden md:block h-3 w-px bg-[#E5EDE3]"></div>
+                <div class="flex items-center gap-x-3 text-[#4B5C4B]">
+                    <i class="fa-solid fa-heart fa-lg text-[#2E7D32]"></i>
+                    <span class="font-medium">Sinds 1984</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVER ONS -->
+    <section id="over" class="max-w-screen-xl mx-auto px-6 pt-20 pb-16">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[1.5px] text-xs font-semibold text-[#2E7D32]">EVVA ASTEN</div>
+                <h2 class="section-header mt-2 leading-none">Een warme<br>gemeenschap<br>van tuiniers.</h2>
+                
+                <div class="mt-8 max-w-lg text-lg text-[#374151]">
+                    Al meer dan 40 jaar genieten onze leden van hun eigen stukje natuur. 
+                    Of je nu op zoek bent naar ontspanning, gezonde groenten of nieuwe vrienden — 
+                    bij EVVA ben je thuis.
+                </div>
+                
+                <div class="mt-8 flex gap-4">
+                    <div class="px-5 py-3 bg-[#F1F7EE] rounded-3xl text-sm">
+                        <span class="font-semibold">Locatie Asten:</span> Koestraat 100
+                    </div>
+                    <div class="px-5 py-3 bg-[#F1F7EE] rounded-3xl text-sm">
+                        <span class="font-semibold">Locatie Heusden:</span> 't Hoekske 1
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-5">
+                <div class="bg-white p-8 rounded-3xl modern-shadow border border-[#E5EDE3]">
+                    <div class="text-sm font-medium mb-4 text-[#2E7D32]">Wat onze leden zeggen</div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center gap-x-3 mb-3">
+                                <img src="https://picsum.photos/id/1005/40/40" class="rounded-full w-9 h-9" alt="">
+                                <div>
+                                    <div class="font-semibold">Marianne (72)</div>
+                                    <div class="text-xs text-[#64748B]">Lid sinds 2009</div>
+                                </div>
+                            </div>
+                            <p class="text-[#374151]">"Ik kom hier voor de rust en de mensen. De groenten zijn een leuke bonus."</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center gap-x-3 mb-3">
+                                <img src="https://picsum.photos/id/1012/40/40" class="rounded-full w-9 h-9" alt="">
+                                <div>
+                                    <div class="font-semibold">Lucas (34)</div>
+                                    <div class="text-xs text-[#64748B]">Lid sinds 2021</div>
+                                </div>
+                            </div>
+                            <p class="text-[#374151]">"Mijn zoontje van 7 helpt mee met zaaien. Het is een geweldige manier om samen buiten te zijn."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAAROM EEN VOLKSTUIN -->
+    <section id="waarom" class="bg-white py-16 border-y border-[#E5EDE3]">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-2xl mb-12">
+                <div class="uppercase text-xs tracking-widest font-semibold text-[#2E7D32]">VOOR IEDEREEN</div>
+                <h2 class="section-header mt-3">Waarom een volkstuin<br>bij EVVA?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Benefit 1 -->
+                <div class="benefit-card bg-[#F8FAF5] p-8 rounded-3xl card border border-[#E5EDE3]">
+                    <div class="w-14 h-14 bg-[#D1F2C3] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-sun benefit-icon text-[#2E7D32] text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl">Ontspanning</h4>
+                    <p class="mt-3 text-[#374151]">Vlucht uit de drukte. Adem de frisse lucht in en laat alle stress los.</p>
+                    <div class="mt-4 text-xs font-medium text-[#2E7D32]">Perfect voor jong &amp; oud</div>
+                </div>
+                
+                <div class="benefit-card bg-[#F8FAF5] p-8 rounded-3xl card border border-[#E5EDE3]">
+                    <div class="w-14 h-14 bg-[#D1F2C3] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-heart benefit-icon text-[#2E7D32] text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl">Gezond &amp; lekker</h4>
+                    <p class="mt-3 text-[#374151]">Kweek je eigen onbespoten groenten en fruit. Heerlijk, vers en betaalbaar.</p>
+                    <div class="mt-4 text-xs font-medium text-[#2E7D32]">Gezonde levensstijl</div>
+                </div>
+                
+                <div class="benefit-card bg-[#F8FAF5] p-8 rounded-3xl card border border-[#E5EDE3]">
+                    <div class="w-14 h-14 bg-[#D1F2C3] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-users benefit-icon text-[#2E7D32] text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl">Gezelligheid</h4>
+                    <p class="mt-3 text-[#374151]">Maak nieuwe vrienden, ruil stekjes en oogst, en doe mee aan leuke activiteiten.</p>
+                    <div class="mt-4 text-xs font-medium text-[#2E7D32]">Sterk gemeenschapsgevoel</div>
+                </div>
+                
+                <div class="benefit-card bg-[#F8FAF5] p-8 rounded-3xl card border border-[#E5EDE3]">
+                    <div class="w-14 h-14 bg-[#D1F2C3] rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-child benefit-icon text-[#2E7D32] text-3xl"></i>
+                    </div>
+                    <h4 class="font-bold text-xl">Voor het hele gezin</h4>
+                    <p class="mt-3 text-[#374151]">Kinderen leren over natuur en waar eten vandaan komt. Een prachtige buitenactiviteit.</p>
+                    <div class="mt-4 text-xs font-medium text-[#2E7D32]">Leuk voor kinderen!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIES -->
+    <section class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-12 gap-x-10 gap-y-10 items-center">
+            <div class="md:col-span-5">
+                <div class="sticky top-24">
+                    <div class="uppercase tracking-[1.5px] text-xs font-semibold text-[#2E7D32]">ONZE TUINEN</div>
+                    <h2 class="section-header mt-3">Twee mooie<br>locaties</h2>
+                    <p class="mt-4 text-lg">Beide complexen zijn makkelijk bereikbaar en bieden een rustige, groene omgeving.</p>
+                    
+                    <div class="mt-8">
+                        <a href="#contact" class="inline-flex items-center text-sm font-semibold text-[#2E7D32] group">
+                            Vraag een rondleiding aan 
+                            <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Locatie Asten -->
+                <div class="bg-white border border-[#E5EDE3] p-7 rounded-3xl card">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-xl">Asten</div>
+                            <div class="text-[#64748B]">Koestraat 100</div>
+                        </div>
+                        <div class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Hoofdlocatie</div>
+                    </div>
+                    <div class="mt-6 text-sm text-[#374151]">
+                        Ruime percelen, mooi uitzicht en een gezellig clubhuis.
+                    </div>
+                    <div class="mt-6 flex items-center gap-x-2 text-xs">
+                        <div class="px-3 py-1 bg-[#F1F7EE] rounded-full">± 120 tuinen</div>
+                    </div>
+                </div>
+                
+                <!-- Locatie Heusden -->
+                <div class="bg-white border border-[#E5EDE3] p-7 rounded-3xl card">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-xl">Heusden</div>
+                            <div class="text-[#64748B]">'t Hoekske 1</div>
+                        </div>
+                        <div class="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">Klein &amp; gezellig</div>
+                    </div>
+                    <div class="mt-6 text-sm text-[#374151]">
+                        Intieme sfeer met veel groen en een actieve groep leden.
+                    </div>
+                    <div class="mt-6 flex items-center gap-x-2 text-xs">
+                        <div class="px-3 py-1 bg-[#F1F7EE] rounded-full">± 60 tuinen</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HUREN VAN EEN TUIN -->
+    <section id="huren" class="bg-[#2E7D32] text-white py-20">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-12">
+                <div class="text-[#D1F2C3] text-sm font-medium tracking-wider">BETAALBAAR VOOR IEDEREEN</div>
+                <h2 class="section-header mt-3 text-white">Huur een tuin<br>vanaf €15 per jaar</h2>
+                <p class="mt-4 text-white/80">Wij houden de prijzen bewust laag, zodat iedereen kan genieten van een eigen stukje groen.</p>
+            </div>
+            
+            <!-- Pricing cards -->
+            <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+                <!-- Small garden -->
+                <div class="bg-white text-[#1F2A1F] rounded-3xl p-8 card">
+                    <div>
+                        <div class="font-semibold text-sm text-[#2E7D32]">KLEIN</div>
+                        <div class="text-4xl font-bold mt-2">50 m²</div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold">€15</span>
+                            <span class="ml-1.5 text-[#64748B]">/ jaar</span>
+                        </div>
+                    </div>
+                    <div class="mt-7 text-sm">
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Huur</span>
+                            <span class="font-semibold">€15</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Inschrijfgeld</span>
+                            <span class="font-semibold">€10</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Borg (zonder huisje)</span>
+                            <span class="font-semibold">€100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medium -->
+                <div class="bg-white text-[#1F2A1F] rounded-3xl p-8 card relative">
+                    <div class="absolute -top-3 right-6 px-4 py-1 bg-[#2E7D32] text-white text-xs font-bold rounded-full">MEEST GEKOZEN</div>
+                    <div>
+                        <div class="font-semibold text-sm text-[#2E7D32]">STANDAARD</div>
+                        <div class="text-4xl font-bold mt-2">100–200 m²</div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold">€30</span>
+                            <span class="ml-1.5 text-[#64748B]">/ jaar</span>
+                        </div>
+                    </div>
+                    <div class="mt-7 text-sm">
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Huur</span>
+                            <span class="font-semibold">€30</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Inschrijfgeld</span>
+                            <span class="font-semibold">€10</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Borg (met huisje)</span>
+                            <span class="font-semibold">€200</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Large -->
+                <div class="bg-white text-[#1F2A1F] rounded-3xl p-8 card">
+                    <div>
+                        <div class="font-semibold text-sm text-[#2E7D32]">GROOT</div>
+                        <div class="text-4xl font-bold mt-2">300 m²</div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex items-baseline">
+                            <span class="text-5xl font-bold">€90</span>
+                            <span class="ml-1.5 text-[#64748B]">/ jaar</span>
+                        </div>
+                    </div>
+                    <div class="mt-7 text-sm">
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Huur</span>
+                            <span class="font-semibold">€90</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Inschrijfgeld</span>
+                            <span class="font-semibold">€10</span>
+                        </div>
+                        <div class="flex justify-between py-3 border-t border-[#E5EDE3]">
+                            <span>Borg (met huisje)</span>
+                            <span class="font-semibold">€200</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-2xl mx-auto mt-10 text-center">
+                <p class="text-white/70 text-sm">Borg krijg je terug bij correcte opzegging en schone tuin.</p>
+                <a href="#contact" class="mt-6 inline-flex items-center px-8 py-4 bg-white text-[#2E7D32] font-semibold rounded-3xl hover:bg-[#F1F7EE]">
+                    Direct aanvragen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVITEITEN -->
+    <section id="activiteiten" class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            <div class="lg:w-5/12">
+                <div class="uppercase text-xs tracking-widest font-semibold text-[#2E7D32]">2025</div>
+                <h2 class="section-header mt-3">Leuke activiteiten<br>voor jong en oud</h2>
+                <p class="mt-4 text-lg">Elk jaar organiseren we gezellige activiteiten die het verenigingsgevoel versterken.</p>
+                
+                <div class="mt-8">
+                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-[#2E7D32]">
+                        Bekijk volledige agenda <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="bg-white border border-[#E5EDE3] p-6 rounded-3xl card">
+                    <div class="font-semibold">Ruildag</div>
+                    <div class="text-[#64748B] mt-1 text-sm">April &amp; September</div>
+                    <p class="mt-4 text-sm">Ruilen van planten, zaden en oogst met andere leden.</p>
+                </div>
+                <div class="bg-white border border-[#E5EDE3] p-6 rounded-3xl card">
+                    <div class="font-semibold">Klusdag</div>
+                    <div class="text-[#64748B] mt-1 text-sm">Meerdere keren per jaar</div>
+                    <p class="mt-4 text-sm">Samen onderhoud aan het complex doen.</p>
+                </div>
+                <div class="bg-white border border-[#E5EDE3] p-6 rounded-3xl card">
+                    <div class="font-semibold">Moestuincursus</div>
+                    <div class="text-[#64748B] mt-1 text-sm">Mei &amp; Juni</div>
+                    <p class="mt-4 text-sm">Leer alles over biologisch tuinieren.</p>
+                </div>
+                <div class="bg-white border border-[#E5EDE3] p-6 rounded-3xl card">
+                    <div class="font-semibold">Barbecue &amp; Feest</div>
+                    <div class="text-[#64748B] mt-1 text-sm">Juli &amp; September</div>
+                    <p class="mt-4 text-sm">Gezellig samenzijn met alle leden en gezinnen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HUISHOUDELIJK REGLEMENT -->
+    <section id="regels" class="bg-white py-16 border-y border-[#E5EDE3]">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-2xl mb-10">
+                <div class="uppercase tracking-widest text-xs font-semibold text-[#2E7D32]">BELANGRIJK</div>
+                <h2 class="section-header mt-3">Huishoudelijk<br>reglement</h2>
+                <p class="mt-3">Duidelijke en eerlijke regels zodat iedereen met plezier kan tuinieren.</p>
+            </div>
+            
+            <div class="max-w-4xl grid md:grid-cols-2 gap-6">
+                <div class="bg-[#F8FAF5] p-8 rounded-3xl border border-[#E5EDE3]">
+                    <h4 class="font-semibold mb-5 flex items-center gap-x-2">
+                        <i class="fa-solid fa-check-circle text-[#2E7D32]"></i> 
+                        <span>Algemene regels</span>
+                    </h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="rule-item flex gap-3"><i class="fa-solid fa-check mt-1 text-emerald-600"></i> Houd je tuin netjes en onkruidvrij</li>
+                        <li class="rule-item flex gap-3"><i class="fa-solid fa-check mt-1 text-emerald-600"></i> Gebruik alleen toegestane bestrijdingsmiddelen</li>
+                        <li class="rule-item flex gap-3"><i class="fa-solid fa-check mt-1 text-emerald-600"></i> Respecteer je buren</li>
+                        <li class="rule-item flex gap-3"><i class="fa-solid fa-check mt-1 text-emerald-600"></i> Honden aan de lijn</li>
+                        <li class="rule-item flex gap-3"><i class="fa-solid fa-check mt-1 text-emerald-600"></i> Geen open vuur zonder toestemming</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-[#F8FAF5] p-8 rounded-3xl border border-[#E5EDE3]">
+                    <h4 class="font-semibold mb-5 flex items-center gap-x-2">
+                        <i class="fa-solid fa-calendar text-[#2E7D32]"></i> 
+                        <span>Opzeggen &amp; Borg</span>
+                    </h4>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex gap-3"><span class="font-bold w-5">1.</span> <span>Schriftelijk opzeggen vóór 1 november</span></div>
+                        <div class="flex gap-3"><span class="font-bold w-5">2.</span> <span>Tuin uiterlijk 31 december schoon opleveren</span></div>
+                        <div class="flex gap-3"><span class="font-bold w-5">3.</span> <span>Sleutel inleveren bij terreinbeheerder</span></div>
+                        <div class="mt-4 pt-4 border-t border-[#E5EDE3] text-xs text-[#64748B]">
+                            Bij correcte opzegging krijg je je borg volledig terug.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOESTUIN WEETJES -->
+    <section id="weetjes" class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <div class="inline-block px-4 py-1.5 bg-[#D1F2C3] text-[#2E7D32] text-xs font-bold tracking-widest rounded-full">LEUK OM TE WETEN</div>
+            <h2 class="section-header mt-4">Moestuin weetjes</h2>
+            <p class="text-lg mt-3 max-w-md mx-auto">Handige tips voor beginners én gevorderden</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="tip-card bg-white border border-[#E5EDE3] p-7 rounded-3xl">
+                <div class="text-3xl mb-4">🌱</div>
+                <div class="font-semibold">Zaai in de juiste maand</div>
+                <p class="mt-3 text-sm text-[#374151]">Sla en radijsjes kunnen al in maart, tomaten en paprika pas na de ijsheiligen.</p>
+            </div>
+            <div class="tip-card bg-white border border-[#E5EDE3] p-7 rounded-3xl">
+                <div class="text-3xl mb-4">💧</div>
+                <div class="font-semibold">Water geven 's ochtends</div>
+                <p class="mt-3 text-sm text-[#374151]">Minder verdamping en minder kans op schimmel.</p>
+            </div>
+            <div class="tip-card bg-white border border-[#E5EDE3] p-7 rounded-3xl">
+                <div class="text-3xl mb-4">🐞</div>
+                <div class="font-semibold">Natuurlijke bestrijding</div>
+                <p class="mt-3 text-sm text-[#374151]">Lieveheersbeestjes en gaasvliegen houden bladluizen weg.</p>
+            </div>
+            <div class="tip-card bg-white border border-[#E5EDE3] p-7 rounded-3xl">
+                <div class="text-3xl mb-4">🍅</div>
+                <div class="font-semibold">Wisselbouw toepassen</div>
+                <p class="mt-3 text-sm text-[#374151]">Plant elk jaar iets anders op dezelfde plek om de grond gezond te houden.</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-10">
+            <a href="#contact" class="text-sm font-medium text-[#2E7D32]">Meer tips in onze nieuwsbrief &rarr;</a>
+        </div>
+    </section>
+
+    <!-- BESTUUR -->
+    <section class="bg-[#F8FAF5] py-16">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-xl mb-12">
+                <div class="uppercase text-xs font-semibold tracking-widest text-[#2E7D32]">HET TEAM</div>
+                <h2 class="section-header mt-3">Het bestuur</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-3xl border border-[#E5EDE3]">
+                    <div class="font-bold">Judith van Unen</div>
+                    <div class="text-sm text-[#64748B]">Secretaris</div>
+                    <div class="mt-4 text-sm font-medium text-[#2E7D32]">0652 458 436</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-[#E5EDE3]">
+                    <div class="font-bold">Gerard Leenders</div>
+                    <div class="text-sm text-[#64748B]">Penningmeester</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-[#E5EDE3]">
+                    <div class="font-bold">Derk Bergmans</div>
+                    <div class="text-sm text-[#64748B]">Uitgifte tuinen</div>
+                    <div class="mt-4 text-sm font-medium text-[#2E7D32]">0621 594 136</div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-[#E5EDE3]">
+                    <div class="font-bold">Jos Verberne</div>
+                    <div class="text-sm text-[#64748B]">Contactpersoon vrijwilligers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIJ -->
+    <section class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="flex items-end justify-between mb-9">
+            <div>
+                <div class="uppercase text-xs font-semibold text-[#2E7D32]">INSPIRATIE</div>
+                <h2 class="section-header mt-2">Foto's &amp; filmpjes</h2>
+            </div>
+            <a href="#" class="hidden md:flex items-center text-sm text-[#2E7D32]">Bekijk alles <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/1015/600/400" class="w-full h-full object-cover"></div>
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/102/600/400" class="w-full h-full object-cover"></div>
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/1036/600/400" class="w-full h-full object-cover"></div>
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/106/600/400" class="w-full h-full object-cover"></div>
+            <div class="aspect-video bg-[#E5EDE3] rounded-3xl overflow-hidden"><img src="https://picsum.photos/id/160/600/400" class="w-full h-full object-cover"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT / JOIN -->
+    <section id="contact" class="bg-white border-t border-[#E5EDE3]">
+        <div class="max-w-screen-xl mx-auto px-6 py-20">
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Contact info -->
+                <div>
+                    <div class="uppercase tracking-widest text-xs font-semibold text-[#2E7D32]">KLAAR OM TE BEGINNEN?</div>
+                    <h2 class="section-header mt-3">Neem contact op</h2>
+                    
+                    <div class="mt-10 space-y-8">
+                        <div>
+                            <div class="font-semibold text-sm mb-1">E-mail</div>
+                            <a href="mailto:evva-asten@hotmail.com" class="text-xl font-medium hover:text-[#2E7D32]">evva-asten@hotmail.com</a>
+                        </div>
+                        
+                        <div>
+                            <div class="font-semibold text-sm mb-1">Telefoon</div>
+                            <div class="space-y-1">
+                                <div><span class="font-medium">Secretariaat:</span> 06 5245 8436</div>
+                                <div><span class="font-medium">Verhuur:</span> 06 2159 4136</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="font-semibold text-sm mb-2">Locaties</div>
+                            <div class="text-[#374151]">
+                                <div>Koestraat 100, Asten</div>
+                                <div>'t Hoekske 1, Heusden</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact form -->
+                <div class="bg-[#F8FAF5] p-9 rounded-3xl border border-[#E5EDE3]">
+                    <div class="font-semibold mb-6">Stuur ons een bericht</div>
+                    
+                    <form id="contact-form" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-xs font-medium block mb-1.5">Naam</label>
+                                <input type="text" class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl text-sm" placeholder="Je naam" required>
+                            </div>
+                            <div>
+                                <label class="text-xs font-medium block mb-1.5">Telefoon</label>
+                                <input type="tel" class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl text-sm" placeholder="06 12 34 56 78">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="text-xs font-medium block mb-1.5">E-mailadres</label>
+                            <input type="email" class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl text-sm" placeholder="jouw@email.nl" required>
+                        </div>
+                        
+                        <div>
+                            <label class="text-xs font-medium block mb-1.5">Waarover wil je meer weten?</label>
+                            <select class="w-full border border-[#E5EDE3] px-4 py-3 rounded-2xl text-sm" required>
+                                <option>Ik wil een tuin huren</option>
+                                <option>Ik wil meer info over activiteiten</option>
+                                <option>Ik heb een vraag over de regels</option>
+                                <option>Anders</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="text-xs font-medium block mb-1.5">Bericht</label>
+                            <textarea class="w-full border border-[#E5EDE3] px-4 py-3 rounded-3xl text-sm h-28 resize-y" placeholder="Vertel ons meer..."></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="mt-2 w-full py-4 bg-[#2E7D32] text-white font-semibold rounded-3xl flex items-center justify-center gap-x-2 hover:bg-[#256B29] transition">
+                            <span>Verstuur bericht</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                        
+                        <p class="text-xs text-center text-[#64748B]">We nemen binnen 2 werkdagen contact met je op.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1F2A1F] text-white/70 py-12">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-y-6">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-[#2E7D32] rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-seedling text-white"></i>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-white">EVVA Asten</span><br>
+                        <span class="text-xs">Sinds 1984</span>
+                    </div>
+                </div>
+                
+                <div class="text-xs flex flex-wrap justify-center gap-x-6 text-center md:text-left">
+                    <div>© 2026 Eerste Volkstuinvereniging Asten</div>
+                    <div>Privacy &amp; Cookies</div>
+                    <div>Huishoudelijk Reglement</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent-green', '#2E7D32');
+        }
+        
+        // Mobile menu
+        function initMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!btn) return;
+            
+            btn.addEventListener('click', () => {
+                const menu = document.createElement('div');
+                menu.className = 'fixed inset-0 bg-black/70 z-[999] flex md:hidden';
+                menu.innerHTML = `
+                    <div class="w-3/4 max-w-xs bg-white h-full p-8">
+                        <div class="flex justify-between items-center mb-8">
+                            <div class="flex items-center gap-x-3">
+                                <div class="w-9 h-9 bg-[#2E7D32] rounded-2xl flex items-center justify-center">
+                                    <i class="fa-solid fa-seedling text-white text-2xl"></i>
+                                </div>
+                                <span class="font-bold text-2xl">EVVA</span>
+                            </div>
+                            <button class="text-2xl text-[#64748B]">×</button>
+                        </div>
+                        
+                        <div class="space-y-1 text-lg">
+                            <a href="index.html" class="block py-3 px-4 hover:bg-[#F8FAF5] rounded-2xl">Home</a>
+                            <a href="kosten.html" class="block py-3 px-4 hover:bg-[#F8FAF5] rounded-2xl">Huren</a>
+                            <a href="activiteiten.html" class="block py-3 px-4 hover:bg-[#F8FAF5] rounded-2xl">Activiteiten</a>
+                            <a href="weetjes.html" class="block py-3 px-4 hover:bg-[#F8FAF5] rounded-2xl">Weetjes</a>
+                            <a href="reglement.html" class="block py-3 px-4 hover:bg-[#F8FAF5] rounded-2xl">Reglement</a>
+                            <a href="nieuwsbrieven.html" class="block py-3 px-4 hover:bg-[#F8FAF5] rounded-2xl">Nieuwsbrieven</a>
+                        </div>
+                        
+                        <div class="pt-8 mt-8 border-t">
+                            <a href="#contact" class="block w-full py-3.5 text-center bg-[#2E7D32] text-white font-semibold rounded-3xl">Contact opnemen</a>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(menu);
+                
+                menu.querySelector('button').addEventListener('click', () => {
+                    menu.remove();
+                });
+                
+                menu.addEventListener('click', (e) => {
+                    if (e.target === menu) menu.remove();
+                });
+            });
+        }
+        
+        // Contact form handler
+        function initContactForm() {
+            const form = document.getElementById('contact-form');
+            if (!form) return;
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const button = form.querySelector('button');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = `<span>Bericht verstuurd!</span>`;
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'text-center py-4 text-emerald-600 font-medium';
+                    successMsg.innerHTML = `Bedankt! We nemen zo snel mogelijk contact met je op.`;
+                    
+                    form.innerHTML = '';
+                    form.appendChild(successMsg);
+                    
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2800);
+                }, 1500);
+            });
+        }
+        
+        // Smooth scrolling for nav links
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            initMobileMenu();
+            initContactForm();
+            initSmoothScroll();
+            
+            // Optional: Add subtle animation to benefit cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.benefit-card, .tip-card, .card').forEach(el => {
+                el.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                observer.observe(el);
+            });
+            
+            console.log('%c[EVVA] Mooie moderne website succesvol geladen!', 'color:#2E7D32');
+        }
+        
+        window.onload = init;
+    </script>
+</body>
+</html>
