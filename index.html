@@ -86,6 +86,34 @@
         .garden-bg {
             background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cpath fill=%22%23f0fdf4%22 fill-opacity=%220.4%22 d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-10V8h-2v16h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 6v-4H4v4H0v2h4v4h2V8h4V6H6z%22/%3E%3C/g%3E%3C/svg%27');
         }
+
+        /* Premium floating plant decorations */
+        .floating-plant {
+            position: absolute;
+            font-size: 1.1rem;
+            opacity: 0.15;
+            animation: float 8s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .floating-plant:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+        .floating-plant:nth-child(2) { top: 25%; right: 12%; animation-delay: 1.5s; }
+        .floating-plant:nth-child(3) { top: 55%; left: 5%; animation-delay: 3s; }
+        .floating-plant:nth-child(4) { top: 70%; right: 8%; animation-delay: 4.5s; }
+        .floating-plant:nth-child(5) { top: 40%; left: 15%; animation-delay: 2s; }
+        .floating-plant:nth-child(6) { top: 80%; right: 20%; animation-delay: 5.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(8deg); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
 <body class="bg-[#F8FAF5] text-[#1F2A1F]">
@@ -135,58 +163,97 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="hero-bg h-[92vh] flex items-center relative">
-        <div class="max-w-screen-xl mx-auto px-6 pt-12 pb-16">
-            <div class="max-w-2xl">
-                <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-3xl mb-6 border border-white">
-                    <div class="flex items-center">
-                        <div class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                        <span class="ml-2 text-sm font-semibold text-[#2E7D32]">Meer dan 40 jaar passie</span>
+    <!-- HERO SECTION - Premium style -->
+    <header class="relative h-[100vh] flex items-center overflow-hidden" 
+            style="background: linear-gradient(135deg, #1a2f1f 0%, #2E7D32 100%);">
+        
+        <!-- Floating plant decorations -->
+        <div class="floating-plant text-4xl">🌿</div>
+        <div class="floating-plant text-3xl">🍃</div>
+        <div class="floating-plant text-4xl">🌱</div>
+        <div class="floating-plant text-3xl">🌼</div>
+        <div class="floating-plant text-4xl">🥬</div>
+        <div class="floating-plant text-3xl">🌻</div>
+
+        <div class="max-w-screen-xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left content -->
+                <div class="lg:col-span-7 text-white">
+                    <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl mb-8 border border-white/20">
+                        <div class="flex items-center gap-x-2">
+                            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium tracking-wider">MEER DAN 40 JAAR PASSIE</span>
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-7xl md:text-8xl font-bold leading-[0.95] tracking-tighter">
+                        Jouw eigen<br>
+                        <span class="text-[#C5E8B8]">groene</span><br>
+                        plek.
+                    </h1>
+                    
+                    <p class="mt-8 max-w-lg text-xl text-white/80">
+                        Welkom bij de Eerste Volkstuinvereniging Asten.<br>
+                        Een warme gemeenschap waar jong en oud samen tuinieren.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mt-10">
+                        <a href="kosten.html" 
+                           class="px-9 py-4 bg-[#C5E8B8] hover:bg-white text-[#1a2f1f] font-semibold rounded-3xl text-lg flex items-center gap-x-3 transition-all active:scale-[0.985]">
+                            <span>Bekijk de tuinen</span>
+                        </a>
+                        <a href="#contact" 
+                           class="px-9 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-semibold rounded-3xl text-lg transition-all flex items-center gap-x-3">
+                            <span>Neem contact op</span>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-12 flex items-center gap-x-4 text-sm text-white/60">
+                        <div class="flex -space-x-2">
+                            <img src="https://picsum.photos/id/1005/28/28" class="w-7 h-7 rounded-full border border-white/30 object-cover">
+                            <img src="https://picsum.photos/id/1011/28/28" class="w-7 h-7 rounded-full border border-white/30 object-cover">
+                            <img src="https://picsum.photos/id/1009/28/28" class="w-7 h-7 rounded-full border border-white/30 object-cover">
+                        </div>
+                        <span>180+ tevreden tuiniers</span>
                     </div>
                 </div>
                 
-                <h1 class="text-white text-7xl md:text-7xl font-bold leading-none tracking-tighter">
-                    Jouw eigen<br>
-                    <span class="text-[#D1F2C3]">groene</span> plek.
-                </h1>
-                
-                <p class="mt-6 max-w-md text-xl text-white/90">
-                    Welkom bij de Eerste Volkstuinvereniging Asten. 
-                    Een plek waar jong en oud samen tuinieren, ontspannen en genieten.
-                </p>
-                
-                <div class="flex flex-wrap gap-4 mt-9">
-                    <a href="kosten.html" 
-                       class="px-8 py-4 bg-white text-[#2E7D32] font-semibold rounded-3xl text-lg flex items-center gap-x-3 shadow-xl hover:shadow-2xl transition-all">
-                        <span>Bekijk de tuinen</span>
-                    </a>
-                    <a href="#contact" 
-                       class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/40 font-semibold rounded-3xl text-lg transition-all flex items-center gap-x-3">
-                        <span>Neem contact op</span>
-                    </a>
-                </div>
-                
-                <div class="mt-10 flex items-center gap-x-8 text-white/80 text-sm">
-                    <div class="flex -space-x-2">
-                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-white overflow-hidden"><img src="https://picsum.photos/id/1005/32/32" class="w-full h-full object-cover"></div>
-                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-white overflow-hidden"><img src="https://picsum.photos/id/1011/32/32" class="w-full h-full object-cover"></div>
-                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-white overflow-hidden"><img src="https://picsum.photos/id/1009/32/32" class="w-full h-full object-cover"></div>
-                    </div>
-                    <div>
-                        <span class="font-semibold">180+ tevreden tuiniers</span>
+                <!-- Right side - Glass card -->
+                <div class="lg:col-span-5 hidden lg:block">
+                    <div class="glass-card p-8 rounded-3xl text-white">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="text-sm opacity-70">RATING</div>
+                                <div class="flex items-baseline gap-x-1">
+                                    <span class="text-5xl font-bold">4.9</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm opacity-70">LEDEN</div>
+                                <div class="text-5xl font-bold">180+</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6 border-t border-white/20 flex justify-between text-sm">
+                            <div>
+                                <div class="opacity-70">Sinds</div>
+                                <div class="font-semibold">1984</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="opacity-70">Locaties</div>
+                                <div class="font-semibold">2</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="absolute bottom-8 right-8 hidden lg:block">
-            <div class="bg-white/95 backdrop-blur-lg px-5 py-3 rounded-3xl flex items-center gap-x-3 shadow-xl">
-                <div>
-                    <div class="text-xs font-medium text-[#2E7D32]">Vanaf</div>
-                    <div class="font-bold text-2xl text-[#2E7D32] leading-none">€15<span class="text-base font-normal">/jaar</span></div>
-                </div>
-            </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/50 text-xs tracking-[2px]">
+            <div>SCROLL</div>
+            <div class="mt-1 w-px h-8 bg-white/30"></div>
         </div>
     </header>
 
